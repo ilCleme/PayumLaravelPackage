@@ -25,7 +25,7 @@ class PayumServiceProvider extends ServiceProvider
     public function boot()
     {
         if (version_compare(Application::VERSION, '5.0', '<')) {
-            $srcDir = realpath(__DIR__ . '/../../');
+            $srcDir = realpath(__DIR__.'/../src/');
 
             $this->package('payum/payum-laravel-package', 'payum-laravel-package', $srcDir);
         }
