@@ -9,12 +9,14 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest, windows-latest]
-        php: [7.1, 7.2, 7.3, 7.4]
-        laravel: [5.*]
+        php: [7.1]
+        laravel: [5.1, 5.8]
         stability: [prefer-lowest, prefer-stable]
         include:
-          - laravel: 5.*
-            testbench: 3.*
+          - laravel: 5.1
+            testbench: 3.1.*
+          - laravel: 5.8
+            testbench: 3.8.*
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
@@ -40,4 +42,4 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: composer test
