@@ -7,9 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class NotifyController extends PayumController
 {
-    public function doUnsafeAction(Request $request)
+    public function doUnsafeAction($gateway_name)
     {
-        $gateway = $this->getPayum()->getGateway($request->get('gateway_name'));
+        $gateway = $this->getPayum()->getGateway($gateway_name);
 
         $gateway->execute(new Notify(null));
 
