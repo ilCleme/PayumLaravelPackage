@@ -13,6 +13,8 @@ jobs:
         laravel: [5.8, 6.*, 7.*, 8.*]
         stability: [prefer-lowest, prefer-stable]
         include:
+          - laravel: 5.1
+            testbench: 3.1.*
           - laravel: 5.8
             testbench: 3.8.*
           - laravel: 6.*
