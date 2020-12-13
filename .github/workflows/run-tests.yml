@@ -41,7 +41,7 @@ jobs:
 
       - name: Install dependencies
         if: matrix.guzzle7-adapter
-        run: composer require "php-http/guzzle6-adapter:${{ matrix.guzzle7-adapter }}" --no-interaction --no-update
+        run: composer require "php-http/guzzle7-adapter:${{ matrix.guzzle7-adapter }}" --no-interaction --no-update
 
       - name: Install dependencies
         run: |
