@@ -19,6 +19,7 @@ jobs:
             testbench: 4.*
           - laravel: 7.*
             testbench: 5.*
+            guzzle7-adapter: ^0.1
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
@@ -37,6 +38,10 @@ jobs:
         run: |
           echo "::add-matcher::${{ runner.tool_cache }}/php.json"
           echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: Install dependencies
+        if: matrix.guzzle7-adapter
+        run: composer require "php-http/guzzle6-adapter:${{ matrix.guzzle7-adapter }}" --no-interaction --no-update
 
       - name: Install dependencies
         run: |
